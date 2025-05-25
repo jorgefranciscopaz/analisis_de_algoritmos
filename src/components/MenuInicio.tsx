@@ -23,7 +23,7 @@ const MenuInicio: FC = () => {
   ];
 
   return (
-    <div className="w-full h-screen flex overflow-hidden">
+    <div className="w-full h-screen flex overflown-hidden max-h-screen">
       {algoritmos.map((alg, index) => (
         <div
           key={index}
