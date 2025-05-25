@@ -1,1 +1,20 @@
-@import 'tailwindcss'
+@import 'tailwindcss';
+
+body.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+body.fade-in {
+  opacity: 1;
+  animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
