@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { useEffect } from "react";
-import MenuInicio from './components/menuInicio';
+import MenuInicio from './components/MenuInicio';
 
 const App: FC = () => {
   useEffect(() => {
