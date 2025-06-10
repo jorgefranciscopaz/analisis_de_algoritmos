@@ -19,6 +19,7 @@ def create_distance_matrix(coords):
             dist[i][j] = euclidean_distance(coords[i], coords[j])
     return dist
 
+# === Algoritmo de Fuerza Bruta (Exacto, O(n!)) ===
 def tsp_brute_force(dist):
     n = len(dist)
     nodes = list(range(n))
@@ -33,24 +34,6 @@ def tsp_brute_force(dist):
             best_path = path + [0]
 
     return best_path, min_cost
-
-def tsp_nearest_neighbor(dist):
-    n = len(dist)
-    visited = [False] * n
-    path = [0]
-    visited[0] = True
-    cost = 0
-
-    for _ in range(n - 1):
-        last = path[-1]
-        next_city = min((dist[last][j], j) for j in range(n) if not visited[j])[1]
-        visited[next_city] = True
-        path.append(next_city)
-        cost += dist[last][next_city]
-
-    cost += dist[path[-1]][0]
-    path.append(0)
-    return path, cost
 
 def measure_time(func, dist):
     start = time.time()
@@ -77,23 +60,18 @@ if __name__ == "__main__":
     coords = generate_random_coordinates(num_cities)
     dist_matrix = create_distance_matrix(coords)
 
-    results = {}
-
     print("\n⏳ Ejecutando algoritmo de Fuerza Bruta... Esto puede tardar con muchas ciudades.")
     (bf_path, bf_cost), bf_time = measure_time(tsp_brute_force, dist_matrix)
-    results['Fuerza Bruta'] = (bf_cost, bf_time, bf_path)
+
+    # Visualizar la mejor ruta
     visualize_path(coords, bf_path, "Ruta - Fuerza Bruta")
 
-    print("\n⚡ Ejecutando algoritmo de Vecino Más Cercano...")
-    (nn_path, nn_cost), nn_time = measure_time(tsp_nearest_neighbor, dist_matrix)
-    results['Vecino Más Cercano'] = (nn_cost, nn_time, nn_path)
-    visualize_path(coords, nn_path, "Ruta - Vecino Más Cercano")
-
     # Mostrar resultados
-    df = pd.DataFrame([
-        {'Método': method, 'Costo total': f"{cost:.2f}", 'Tiempo (s)': f"{exec_time:.5f}"}
-        for method, (cost, exec_time, _) in results.items()
-    ])
+    df = pd.DataFrame([{
+        'Método': 'Fuerza Bruta (Exacto)',
+        'Costo total': f"{bf_cost:.2f}",
+        'Tiempo (s)': f"{bf_time:.5f}"
+    }])
 
-    print("\n📊 Resultados comparativos:")
+    print("\n📊 Resultado del algoritmo de Fuerza Bruta:")
     print(df.to_string(index=False))
