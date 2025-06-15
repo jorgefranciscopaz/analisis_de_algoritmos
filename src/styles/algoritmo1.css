@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #89c2d9;
+}
+
+.algoritmo-container {
+  min-height: 100vh;
+  background-image: url('/public/images/pixel_background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 40px 20px;
+  border: 4px solid black;
+  box-shadow: 0 0 10px #0008;
+}
+
+
+.algoritmo-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 0px #fff;
+  letter-spacing: 1px;
+}
+
+.canvas-wrapper {
+  background-color: white;
+  border: 4px solid black;
+  margin-bottom: 1.5rem;
+  box-shadow: inset 0 0 0 2px #222;
+}
+
+.canvas-box {
+  display: block;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.boton {
+  padding: 10px 20px;
+  background-color: #fefefe;
+  color: black;
+  border: 3px solid black;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+  box-shadow: 3px 3px 0px #000;
+}
+
+.boton:hover {
+  background-color: #ffd95a;
+  transform: translateY(-2px);
+}
+
+.progress-wrapper {
+  width: 80%;
+  background-color: #ffffff;
+  border: 3px solid black;
+  margin-bottom: 20px;
+  position: relative;
+  height: 30px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #00cc66;
+  transition: width 0.2s ease-in-out;
+}
+
+.progress-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  color: black;
+}
+
+@keyframes retro-flash {
+  0%, 100% { background-color: #00cc66; }
+  50% { background-color: #55ffaa; }
+}
+
+.retro-flash {
+  animation: retro-flash 0.8s infinite;
+}

@@ -2,9 +2,9 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
-import Algoritmo1 from './pages/algoritmo1';
-import Algoritmo2 from './pages/algoritmo2';
-import Algoritmo3 from './pages/algoritmo3';
+import Algoritmo1 from './pages/Algoritmo1';
+import Algoritmo2 from './pages/Algoritmo2';
+import Algoritmo3 from './pages/Algoritmo3';
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(
