@@ -1,6 +1,6 @@
 {"characters":[
     {
-        "name" : "akari",
+        "name" : "Akari",
         "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/7/79/CustomerAkari_A.png/revision/latest?cb=20230523183441"
     },
     {
@@ -22,5 +22,97 @@
     {
         "name" : "Penny",
         "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/d/d3/CustomerPenny_A.png/revision/latest?cb=20230602051036"
+    },
+    {
+        "name" : "Little Edoardo",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Cherissa",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Yippy",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Gino Romano",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Julep",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Vicky",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Mary",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Peggy",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Crystal",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Nick",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Trishna",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Shannon",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Hope",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Brody",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Matt",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Steven",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Connor",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Ember",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "James",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Bertha",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Pinch Hitwell",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Gremmie",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+    },
+    {
+        "name" : "Duke Gotcha",
+        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
     }
 ]}
