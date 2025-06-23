@@ -7,7 +7,7 @@ const MenuInicio: FC = () => {
   const algoritmos = [
     {
       nombre: 'ALGORITMO 1',
-      fondo: "url('./images/algoritmo1.jpg')",
+      fondo: "url('./images/algoritmo1.png')",
       ruta: '/algoritmo1',
     },
     {
@@ -27,7 +27,7 @@ const MenuInicio: FC = () => {
       {algoritmos.map((alg, index) => (
         <div
           key={index}
-          className="flex-1 relative group cursor-pointer bg-cover bg-center transition-all duration-500 transform hover:scale-105"
+          className="flex-1 relative group cursor-pointer bg-cover bg-center grayscale transition-all duration-500 transform hover:scale-105 hover:grayscale-0"
           style={{ backgroundImage: alg.fondo }}
           onClick={() => {
             const page = document.querySelector('body');
@@ -35,9 +35,8 @@ const MenuInicio: FC = () => {
             setTimeout(() => navigate(alg.ruta), 300);
           }}
         >
-          <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition duration-300" />
+          <div className="absolute inset-0 bg-black opacity-50 group-hover:opacity-0 transition duration-300" />
           <div className="relative z-10 flex h-full items-center justify-center">
-            
           </div>
         </div>
       ))}
