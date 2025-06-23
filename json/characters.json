@@ -1,118 +1,118 @@
 {"characters":[
     {
         "name" : "Akari",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/7/79/CustomerAkari_A.png/revision/latest?cb=20230523183441"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerAkari_A.png"
     },
     {
         "name" : "Big Pauly",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/2/23/CustomerBigPauly_A.png/revision/latest?cb=20230602033017"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerBigPauly_A.png"
     },
     {
         "name" : "Captain Cori",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/d/d9/CustomerCaptainCori_A.png/revision/latest?cb=20230602033504"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerCaptainCori_A.png"
     },
     {
         "name" : "Cooper",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerCooper_A.png/revision/latest?cb=20230602035402"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerCooper_A.png"
     },
     {
         "name" : "Franco",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerFranco_A.png"
     },
     {
         "name" : "Penny",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/d/d3/CustomerPenny_A.png/revision/latest?cb=20230602051036"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerPenny_A.png"
     },
     {
         "name" : "Little Edoardo",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerLittleEdoardo_A.png"
     },
     {
         "name" : "Cherissa",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerCherissa_A.png"
     },
     {
         "name" : "Yippy",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerYippy_A.png"
     },
     {
         "name" : "Gino Romano",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerGinoRomano_A.png"
     },
     {
         "name" : "Julep",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerJulep_A.png"
     },
     {
         "name" : "Vicky",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerVicky_A.png"
     },
     {
         "name" : "Mary",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerMary_A.png"
     },
     {
         "name" : "Peggy",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerPeggy_A.png"
     },
     {
         "name" : "Crystal",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerCrystal_A.png"
     },
     {
         "name" : "Nick",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerNick_A.png"
     },
     {
         "name" : "Trishna",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerTrishna_A.png"
     },
     {
         "name" : "Shannon",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerShannon_A.png"
     },
     {
         "name" : "Hope",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerHope_A.png"
     },
     {
         "name" : "Brody",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerBrody_A.png"
     },
     {
         "name" : "Matt",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerMatt_A.png"
     },
     {
         "name" : "Steven",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerSteven_A.png"
     },
     {
         "name" : "Connor",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerConnor_A.png"
     },
     {
         "name" : "Ember",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerEmber_A.png"
     },
     {
         "name" : "James",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerJames_A.png"
     },
     {
         "name" : "Bertha",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerBertha_A.png"
     },
     {
         "name" : "Pinch Hitwell",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerPinchHitwell_A.png"
     },
     {
         "name" : "Gremmie",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerGremmie_A.png"
     },
     {
         "name" : "Duke Gotcha",
-        "img" : "https://static.wikia.nocookie.net/fliplinestudios/images/9/9c/CustomerFranco_A.png/revision/latest?cb=20230602040813"
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerDukeGotcha_A.png"
     }
 ]}
