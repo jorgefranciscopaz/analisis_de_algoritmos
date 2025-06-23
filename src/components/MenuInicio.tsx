@@ -7,7 +7,7 @@ const MenuInicio: FC = () => {
   const algoritmos = [
     {
       nombre: 'ALGORITMO 1',
-      fondo: "url('./images/algoritmo1.png')",
+      fondo: "url('./images/algoritmo1.jpg')",
       ruta: '/algoritmo1',
     },
     {
@@ -17,7 +17,7 @@ const MenuInicio: FC = () => {
     },
     {
       nombre: 'ALGORITMO 3',
-      fondo: "url('./images/algoritmo3.jpg')",
+      fondo: "url('./images/algoritmo3.png')",
       ruta: '/algoritmo3',
     },
   ];
