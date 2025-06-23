@@ -78,9 +78,9 @@ function knapsackMemo(W: number, applicants: applicant[]) {
 /* ---Implementacion Visual--- */
 const algoritmo1 = () => {
   useEffect(() => {
-    document.body.classList.add("fade-in");
+    document.body.classList.add('fade-in');
     return () => {
-      document.body.classList.remove("fade-in");
+      document.body.classList.remove('fade-in');
     };
   }, []);
 
@@ -373,6 +373,11 @@ const algoritmo1 = () => {
             )}
         </div>
       </div>
+    <div className="min-h-screen p-6 bg-gray-100">
+      <h1 className="text-3xl font-bold mb-4">Algoritmo 2</h1>
+      <p className="text-gray-700">
+        ALGORITMO NO POLINOMICO NUMERO #1
+      </p>
     </div>
   );
 };

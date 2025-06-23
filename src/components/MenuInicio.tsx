@@ -17,7 +17,7 @@ const MenuInicio: FC = () => {
     },
     {
       nombre: 'ALGORITMO 3',
-      fondo: "url('./images/algoritmo3.jpg')",
+      fondo: "url('./images/algoritmo3.png')",
       ruta: '/algoritmo3',
     },
   ];
@@ -37,9 +37,7 @@ const MenuInicio: FC = () => {
         >
           <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition duration-300" />
           <div className="relative z-10 flex h-full items-center justify-center">
-            <h2 className="text-white text-2xl md:text-4xl font-bold drop-shadow-xl transition-opacity duration-300 group-hover:opacity-90">
-              {alg.nombre}
-            </h2>
+            
           </div>
         </div>
       ))}
