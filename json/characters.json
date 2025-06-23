@@ -1,0 +1,118 @@
+{"characters":[
+    {
+        "name" : "Akari",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerAkari_A.png"
+    },
+    {
+        "name" : "Big Pauly",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerBigPauly_A.png"
+    },
+    {
+        "name" : "Captain Cori",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerCaptainCori_A.png"
+    },
+    {
+        "name" : "Cooper",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerCooper_A.png"
+    },
+    {
+        "name" : "Franco",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerFranco_A.png"
+    },
+    {
+        "name" : "Penny",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerPenny_A.png"
+    },
+    {
+        "name" : "Little Edoardo",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerLittleEdoardo_A.png"
+    },
+    {
+        "name" : "Cherissa",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerCherissa_A.png"
+    },
+    {
+        "name" : "Yippy",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerYippy_A.png"
+    },
+    {
+        "name" : "Gino Romano",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerGinoRomano_A.png"
+    },
+    {
+        "name" : "Julep",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerJulep_A.png"
+    },
+    {
+        "name" : "Vicky",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerVicky_A.png"
+    },
+    {
+        "name" : "Mary",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerMary_A.png"
+    },
+    {
+        "name" : "Peggy",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerPeggy_A.png"
+    },
+    {
+        "name" : "Crystal",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerCrystal_A.png"
+    },
+    {
+        "name" : "Nick",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerNick_A.png"
+    },
+    {
+        "name" : "Trishna",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerTrishna_A.png"
+    },
+    {
+        "name" : "Shannon",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerShannon_A.png"
+    },
+    {
+        "name" : "Hope",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerHope_A.png"
+    },
+    {
+        "name" : "Brody",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerBrody_A.png"
+    },
+    {
+        "name" : "Matt",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerMatt_A.png"
+    },
+    {
+        "name" : "Steven",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerSteven_A.png"
+    },
+    {
+        "name" : "Connor",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerConnor_A.png"
+    },
+    {
+        "name" : "Ember",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerEmber_A.png"
+    },
+    {
+        "name" : "James",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerJames_A.png"
+    },
+    {
+        "name" : "Bertha",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerBertha_A.png"
+    },
+    {
+        "name" : "Pinch Hitwell",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerPinchHitwell_A.png"
+    },
+    {
+        "name" : "Gremmie",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerGremmie_A.png"
+    },
+    {
+        "name" : "Duke Gotcha",
+        "img" : "./public/images/Knapsackeria/Applicants/CustomerDukeGotcha_A.png"
+    }
+]}
