@@ -374,6 +374,7 @@ const algoritmo1 = () => {
         </div>
       </div>
     </div>
+      </div>
   );
 };
 

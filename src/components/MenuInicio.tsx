@@ -8,16 +8,17 @@ const MenuInicio: FC = () => {
     {
       nombre: 'ALGORITMO 1',
       fondo: "url('./images/algoritmo1.png')",
+      fondo: "url('/public/images/algoritmo1.jpg')",
       ruta: '/algoritmo1',
     },
     {
       nombre: 'ALGORITMO 2',
-      fondo: "url('./images/algoritmo2.jpg')",
+      fondo: "url('/public/images/algoritmo2.jpg')",
       ruta: '/algoritmo2',
     },
     {
       nombre: 'ALGORITMO 3',
-      fondo: "url('./images/algoritmo3.png')",
+      fondo: "url('/public/images/algoritmo3.png')",
       ruta: '/algoritmo3',
     },
   ];
