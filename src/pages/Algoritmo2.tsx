@@ -1,33 +1,66 @@
-// Algoritmo2.tsx
 import React, { useState, useEffect } from 'react';
 import ControlesSubset from './ControlesSubset';
 import ResultadoSubset from './ResultadoSubset';
 import TablaRecursion from './TablaRecursion';
 import '../game-style.css';
 
-// Algoritmo de programación dinámica
-const buildDPTable = (arr, target) => {
-  const n = arr.length;
-  const dp = Array.from({ length: n + 1 }, () => Array(target + 1).fill(false));
-  const delayArr = Array.from({ length: n + 1 }, () => Array(target + 1).fill(0));
-  let delayCounter = 0;
-
-  for (let i = 0; i <= n; i++) dp[i][0] = true;
-
-  for (let i = 1; i <= n; i++) {
-    for (let j = 1; j <= target; j++) {
-      if (arr[i - 1] > j) {
-        dp[i][j] = dp[i - 1][j];
-      } else {
-        dp[i][j] = dp[i - 1][j] || dp[i - 1][j - arr[i - 1]];
-      }
-      delayArr[i][j] = ++delayCounter * 50;
+const isSubsetSumRecursive = (arr, target) => {
+  const calls = [];
+  let callCount = 0;
+  
+  const isSubsetSumRec = (arr, n, sum, depth = 0, path = []) => {
+    callCount++;
+    const currentCall = {
+      id: callCount,
+      n,
+      sum,
+      depth,
+      path: [...path],
+      delay: callCount * 100,
+      result: null
+    };
+    
+    if (sum === 0) {
+      currentCall.result = true;
+      currentCall.isBaseCase = true;
+      currentCall.baseReason = "sum === 0 (found solution)";
+      calls.push(currentCall);
+      return true;
     }
-  }
-  return { dp, delayArr, result: dp[n][target] };
+    if (n === 0) {
+      currentCall.result = false;
+      currentCall.isBaseCase = true;
+      currentCall.baseReason = "n === 0 (no more elements)";
+      calls.push(currentCall);
+      return false;
+    }
+    
+    if (arr[n - 1] > sum) {
+      currentCall.action = `Skip ${arr[n - 1]} (> ${sum})`;
+      calls.push(currentCall);
+      const result = isSubsetSumRec(arr, n - 1, sum, depth + 1, path);
+      currentCall.result = result;
+      return result;
+    }
+    
+    currentCall.action = `Try include/exclude ${arr[n - 1]}`;
+    calls.push(currentCall);
+    
+    const exclude = isSubsetSumRec(arr, n - 1, sum, depth + 1, path);
+    const include = isSubsetSumRec(arr, n - 1, sum - arr[n - 1], depth + 1, [...path, arr[n - 1]]);
+    
+    const result = exclude || include;
+    currentCall.result = result;
+    currentCall.includeResult = include;
+    currentCall.excludeResult = exclude;
+    
+    return result;
+  };
+  
+  const result = isSubsetSumRec(arr, arr.length, target);
+  return { result, calls };
 };
 
-// Algoritmo Meet in the Middle
 const isSubsetSumMeetMiddle = (arr, target) => {
   const n = arr.length;
   const mid = Math.floor(n / 2);
@@ -76,32 +109,40 @@ const isSubsetSumMeetMiddle = (arr, target) => {
 };
 
 const Algoritmo2 = () => {
-  // Estados principales
   const [input, setInput] = useState('3,4,5,6');
   const [target, setTarget] = useState(9);
   const [modo, setModo] = useState('comunidad');
-  
-  // Estados para programación dinámica
-  const [table, setTable] = useState([]);
-  const [delayMap, setDelayMap] = useState([]);
-  
-  // Estados para meet in the middle
+  const [recursionCalls, setRecursionCalls] = useState([]);
   const [aproxValues, setAproxValues] = useState([]);
   const [leftPart, setLeftPart] = useState([]);
   const [rightPart, setRightPart] = useState([]);
   const [leftSums, setLeftSums] = useState([]);
   const [rightSums, setRightSums] = useState([]);
-  
-  // Estados generales
   const [result, setResult] = useState(null);
   const [subconjunto, setSubconjunto] = useState([]);
   const [running, setRunning] = useState(false);
-  
-  // Estados para animación de pasos
   const [step, setStep] = useState(0);
   const [maxSteps, setMaxSteps] = useState(0);
   const [currentExplanation, setCurrentExplanation] = useState('');
   const [showExplanation, setShowExplanation] = useState(false);
+
+  // ESTA ES LA CLAVE - Limpiar la clase fade-out cuando el componente se monta
+  useEffect(() => {
+    const body = document.querySelector('body');
+    if (body) {
+      // Remover la clase fade-out inmediatamente
+      body.classList.remove('fade-out');
+      // Permitir scroll en esta página específica
+      body.style.overflow = 'auto';
+    }
+
+    // Cleanup cuando el componente se desmonte
+    return () => {
+      if (body) {
+        body.style.overflow = 'hidden'; // Restaurar para el menú
+      }
+    };
+  }, []);
 
   const explanations = [
     "Paso 1: Dividiendo el conjunto en dos partes...",
@@ -111,7 +152,6 @@ const Algoritmo2 = () => {
     "Paso 5: ¡Resultado encontrado!"
   ];
 
-  // Efecto para controlar la animación paso a paso
   useEffect(() => {
     if (modo === 'propio' && running) {
       const timer = setInterval(() => {
@@ -131,8 +171,8 @@ const Algoritmo2 = () => {
 
   const ejecutarAlgoritmo = () => {
     const arr = input.split(',').map(Number).filter(n => !isNaN(n) && n >= 1 && n <= 50);
-    if (arr.length > 20 || target < 1 || target > 100) {
-      alert("Máx 20 números entre 1-50 y objetivo entre 1-100.");
+    if (arr.length > 10 || target < 1 || target > 100) {
+      alert("Máx 10 números entre 1-50 y objetivo entre 1-100 (recursión es exponencial).");
       return;
     }
     
@@ -141,9 +181,8 @@ const Algoritmo2 = () => {
     
     setTimeout(() => {
       if (modo === 'comunidad') {
-        const { dp, delayArr, result } = buildDPTable(arr, target);
-        setTable(dp);
-        setDelayMap(delayArr);
+        const { result, calls } = isSubsetSumRecursive(arr, target);
+        setRecursionCalls(calls);
         setResult(result);
         setAproxValues([]);
         setSubconjunto([]);
@@ -162,18 +201,29 @@ const Algoritmo2 = () => {
         setSubconjunto(subsetUsed);
         setLeftPart(left);
         setRightPart(right);
-        setTable([]);
-        setDelayMap([]);
+        setRecursionCalls([]);
       }
     }, 300);
   };
 
   return (
-    <div className="min-h-screen bg-fixed bg-center bg-cover bg-[url('/images/FuegoAnimado.gif')] text-white flex flex-col items-center p-8 font-arcade overflow-y-auto">
+    <div 
+      className="min-h-screen bg-fixed bg-center bg-cover text-white flex flex-col items-center p-8 font-arcade"
+      style={{ 
+        backgroundImage: "url('/images/FuegoAnimado.gif')",
+        overflowY: 'auto',
+        minHeight: '100vh'
+      }}
+    >
       <div className="w-full max-w-6xl space-y-8">
         <h1 className="text-4xl font-extrabold text-center drop-shadow-xl tracking-wider animate-pulse text-white">
           🎮 Subset Sum Visualizer
         </h1>
+        
+        <div className="text-center text-lg bg-black/30 p-4 rounded-lg">
+          <p><strong>Comunidad (GeeksforGeeks):</strong> Recursión O(2^n) - Muy lento</p>
+          <p><strong>Propio (Divide y Vencerás):</strong> Meet in the Middle O(2^(n/2)) - Más eficiente</p>
+        </div>
 
         <ControlesSubset
           input={input}
@@ -201,13 +251,15 @@ const Algoritmo2 = () => {
           rightSums={rightSums}
           aproxValues={aproxValues}
           target={target}
+          modo={modo}
+          recursionCalls={recursionCalls}
         />
 
-        {modo === 'comunidad' && table.length > 0 && (
+        {modo === 'comunidad' && recursionCalls.length > 0 && (
           <TablaRecursion
-            table={table}
-            delayMap={delayMap}
+            recursionCalls={recursionCalls}
             input={input}
+            target={target}
           />
         )}
       </div>

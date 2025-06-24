@@ -1,4 +1,3 @@
-// ControlesSubset.tsx
 import React from 'react';
 
 const ControlesSubset = ({
@@ -15,64 +14,71 @@ const ControlesSubset = ({
 }) => {
   return (
     <>
-      <div className="flex gap-4 animate-fade-in-up bg-black/50 p-4 rounded-xl shadow-lg justify-center">
-        <button 
-          className={`transition-all duration-300 px-6 py-3 rounded-lg shadow-md hover:scale-105 
-            ${modo === 'comunidad' ? 'bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold' : 'bg-gradient-to-r from-gray-600 to-gray-800 text-white'}`} 
+      <div className="flex justify-center space-x-4 mb-6">
+        <button
+          className={`px-6 py-3 rounded-lg font-bold transition-all shadow-lg ${
+            modo === 'comunidad' ? 'bg-yellow-500 text-black' : 'bg-gray-700 text-white hover:bg-gray-600'
+          }`}
           onClick={() => setModo('comunidad')}
         >
-          🏆 Versión Comunidad
+          � Versión Comunidad
         </button>
-        <button 
-          className={`transition-all duration-300 px-6 py-3 rounded-lg shadow-md hover:scale-105 
-            ${modo === 'propio' ? 'bg-gradient-to-r from-green-400 to-green-600 text-black font-bold' : 'bg-gradient-to-r from-gray-600 to-gray-800 text-white'}`} 
+        <button
+          className={`px-6 py-3 rounded-lg font-bold transition-all shadow-lg ${
+            modo === 'propio' ? 'bg-green-500 text-black' : 'bg-gray-700 text-white hover:bg-gray-600'
+          }`}
           onClick={() => setModo('propio')}
         >
           ✨ Mi Versión
         </button>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-4 items-center bg-black/50 p-4 rounded-xl shadow-lg animate-fade-in-up justify-center">
-        <div className="relative">
-          <input 
-            value={input} 
-            onChange={(e) => setInput(e.target.value)} 
-            className="px-4 py-3 rounded-lg text-white bg-black/70 border-2 border-purple-400 font-mono w-64" 
-            placeholder="Ej: 3,4,5,6" 
-          />
-          <span className="absolute -top-2 left-2 bg-purple-500 text-xs px-2 rounded">Conjunto</span>
-        </div>
-        
-        <div className="relative">
-          <input 
-            type="number" 
-            value={target} 
-            onChange={(e) => setTarget(Number(e.target.value))} 
-            className="px-4 py-3 rounded-lg text-white bg-black/70 border-2 border-blue-400 font-mono w-32" 
-            placeholder="Objetivo" 
-          />
-          <span className="absolute -top-2 left-2 bg-blue-500 text-xs px-2 rounded">Target</span>
-        </div>
-        
-        <div className="relative flex items-center">
-          <button 
-            onClick={ejecutarAlgoritmo} 
-            disabled={running} 
-            className="bg-gradient-to-r from-red-500 to-yellow-500 hover:from-yellow-500 hover:to-red-500 font-bold px-8 py-3 rounded-lg shadow-lg transition-all duration-500 hover:scale-110 font-arcade"
-          >
-            {running ? '🔮 Calculando...' : '🚀 Ejecutar Algoritmo'}     GO!
-          </button> 
-          {!running && (
-            <span className="absolute -right-4 -top-4 bg-white text-black text-xs px-2 rounded-full animate-bounce"> 
-          
-            </span>
-          )}
+      <div className="bg-black/20 p-6 rounded-xl border-2 border-yellow-400 shadow-xl">
+        <div className="flex flex-wrap justify-center items-end gap-4">
+          <div className="flex flex-col items-center">
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              className="px-4 py-3 rounded-lg text-white bg-black/70 border-2 border-purple-400 font-mono w-64"
+              placeholder="Ej: 3,4,5,6"
+            />
+            <label className="text-white text-sm mt-2 font-bold">Conjunto</label>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <input
+              type="number"
+              value={target}
+              onChange={(e) => setTarget(Number(e.target.value))}
+              className="px-4 py-3 rounded-lg text-white bg-black/70 border-2 border-blue-400 font-mono w-32"
+              placeholder="Objetivo"
+            />
+            <label className="text-white text-sm mt-2 font-bold">Target</label>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <button
+              onClick={ejecutarAlgoritmo}
+              disabled={running}
+              className={`px-6 py-3 rounded-lg font-bold transition-all shadow-lg ${
+                running ? 'bg-gray-500 cursor-not-allowed' : 'bg-gradient-to-r from-red-500 to-pink-500 hover:scale-105'
+              } text-white`}
+            >
+              {running ? '🔮 Calculando...' : '🚀 Ejecutar Algoritmo'} GO!
+            </button>
+            {!running && (
+              <div className="text-xs text-gray-300 mt-2 text-center">
+                <p>Máx elementos: {modo === 'comunidad' ? '10' : '20'}</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
       {modo === 'propio' && (
-        <button 
-          onClick={() => setShowExplanation(!showExplanation)} 
+        <button
+          onClick={() => setShowExplanation(!showExplanation)}
           className="bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-all mx-auto block"
         >
           {showExplanation ? '🙈 Ocultar Explicación' : '📖 Mostrar Explicación'}
