@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Boton from "../components/knapsack/Boton";
 import characters from "../../json//characters.json"
 
@@ -10,8 +10,8 @@ type applicant = {
   ratio: number;
 }
 
-/* ---Knapsack Greedy--- */
-function knapsackGreedy(W: number, applicants: applicant[]){
+/* ---Knapsack Personal--- */
+function knapsackPersonal(W: number, applicants: applicant[]){
   for (let i = 0; i < applicants.length; i++) {
     applicants[i].ratio = applicants[i].rating / applicants[i].salary;
   }
@@ -37,10 +37,13 @@ function knapsackGreedy(W: number, applicants: applicant[]){
 function knapsackRec(W: number, applicants: applicant[], n: number): number {
   if (n === 0 || W === 0)
       return 0;
+
   let pick = 0;
+
   if (applicants[n - 1].salary <= W)
       pick = applicants[n - 1].rating + knapsackRec(W - applicants[n - 1].salary, applicants, n - 1);
   let notPick = knapsackRec(W, applicants, n - 1);
+  
   return Math.max(pick, notPick);
 }
 
@@ -77,10 +80,27 @@ function knapsackMemo(W: number, applicants: applicant[]) {
 
 /* ---Implementacion Visual--- */
 const algoritmo1 = () => {
+  const audioRef = useRef<HTMLAudioElement>(null);
+
   useEffect(() => {
     document.body.classList.add('fade-in');
+    
+    if (audioRef.current) {
+      audioRef.current.volume = 0.75;
+      const playPromise = audioRef.current.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log("Autoplay was prevented:", error);
+        });
+      }
+    }
+
     return () => {
       document.body.classList.remove('fade-in');
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
     };
   }, []);
 
@@ -93,28 +113,28 @@ const algoritmo1 = () => {
   
   /* --- Results --- */
   const [isRunning, setIsRunning] = useState({
-    greedy: false,
+    Personal: false,
     memoized: false,
     naive: false
   });
-  const [greedyRuntime, setGreedyRuntime] = useState<number | null>(null);
+  const [PersonalRuntime, setPersonalRuntime] = useState<number | null>(null);
   const [memoizedRuntime, setMemoizedRuntime] = useState<number | null>(null);
   const [naiveRuntime, setNaiveRuntime] = useState<number | null>(null);
-  const [greedyRating, setGreedyRating] = useState<number | null>(null);
+  const [PersonalRating, setPersonalRating] = useState<number | null>(null);
   const [memoizedRating, setMemoizedRating] = useState<number | null>(null);
   const [selectedApplicants, setSelectedApplicants] = useState<applicant[]>([]);
   
   const runAllAlgorithms = async () => {
-    setGreedyRuntime(null);
+    setPersonalRuntime(null);
     setMemoizedRuntime(null);
     setNaiveRuntime(null);
-    setGreedyRating(null);
+    setPersonalRating(null);
     setMemoizedRating(null);
     setSelectedApplicants([]);
     
     const runWithTime = async (
       algorithm: () => { maxRating: number, selectedApplicants?: applicant[] },
-      type: 'greedy' | 'memoized' | 'naive'
+      type: 'Personal' | 'memoized' | 'naive'
     ) => {
       setIsRunning(prev => ({ ...prev, [type]: true }));
       const start = performance.now();
@@ -129,9 +149,9 @@ const algoritmo1 = () => {
         const end = performance.now();
         const runtime = end - start;
         
-        if (type === 'greedy') {
-          setGreedyRuntime(runtime);
-          setGreedyRating(result.maxRating);
+        if (type === 'Personal') {
+          setPersonalRuntime(runtime);
+          setPersonalRating(result.maxRating);
           if (result.selectedApplicants) {
             setSelectedApplicants(result.selectedApplicants);
           }
@@ -151,14 +171,21 @@ const algoritmo1 = () => {
       }
     };
     
-    const greedyPromise = runWithTime(() => knapsackGreedy(budget, [...applicants]), 'greedy');
+    const PersonalPromise = runWithTime(() => knapsackPersonal(budget, [...applicants]), 'Personal');
     
-    const memoizedPromise = runWithTime(() => ({
-      maxRating: knapsackMemo(budget, [...applicants])
-    }), 'memoized');
+    let memoizedPromise;
+    if (applicants.length <= 99) {
+      memoizedPromise = runWithTime(() => ({
+        maxRating: knapsackMemo(budget, [...applicants])
+      }), 'memoized');
+    } else {
+      setIsRunning(prev => ({ ...prev, memoized: false }));
+      setMemoizedRuntime(null);
+      memoizedPromise = Promise.resolve({ type: 'memoized', runtime: 0, success: false });
+    } 
     
     let naivePromise;
-    if (applicants.length <= 20) {
+    if (applicants.length <= 32) {
       naivePromise = runWithTime(() => ({
         maxRating: knapsackCommunity(budget, [...applicants])
       }), 'naive');
@@ -168,7 +195,7 @@ const algoritmo1 = () => {
       naivePromise = Promise.resolve({ type: 'naive', runtime: 0, success: false });
     }
     
-    await Promise.allSettled([greedyPromise, memoizedPromise, naivePromise]);
+    await Promise.allSettled([PersonalPromise, memoizedPromise, naivePromise]);
     setStage("results");
   };
 
@@ -225,7 +252,14 @@ const algoritmo1 = () => {
   }, [stage, resumes]);
 
   return (
-    <div className="bg-[url('./images/Knapsackeria/Wallpaper.png')] w-screen h-screen font-baloo2 overflow-hidden">
+    <>
+      <audio 
+        ref={audioRef} 
+        src="/images/Knapsackeria/MenuMusic.mp3" 
+        loop 
+        preload="auto"
+      />
+      <div className="bg-[url('./images/Knapsackeria/Wallpaper.png')] w-screen h-screen font-baloo2 overflow-hidden">
       <div className="flex w-full h-full">
         <div className="w-1/2 flex items-center justify-center">
           <img src="./images/Knapsackeria/Papa_Louie.png" className="-scale-x-100 scale-y-100 w-3/4 max-w-sm" />
@@ -245,9 +279,9 @@ const algoritmo1 = () => {
               <h2 className="text-8xl text-white font-bold text-center">ESTADISTICAS</h2>
               <div className="w-full transform ml-12 rotate-4">
                 <div className="flex items-center w-full">
-                  <span className="bg-gray-100 text-black font-bold text-6xl px-4 py-2 border-4 border-r-0 border-black w-1/2">Greedy</span>
+                  <span className="bg-gray-100 text-black font-bold text-6xl px-4 py-2 border-4 border-r-0 border-black w-1/2">Personal</span>
                   <span className="bg-gray-100 text-black font-bold text-6xl px-4 py-2 border-4 border-black w-1/2 text-center">
-                    {greedyRuntime ? `${greedyRuntime.toFixed(2)} ms` : '...'}
+                    {PersonalRuntime ? `${PersonalRuntime.toFixed(2)} ms` : '...'}
                   </span>
                 </div>
                 <div className="flex items-center w-full">
@@ -331,15 +365,15 @@ const algoritmo1 = () => {
                       <Boton 
                         texto="EVALUAR" 
                         onClick={runAllAlgorithms}
-                        disabled={isRunning.greedy || isRunning.memoized || isRunning.naive}
+                        disabled={isRunning.Personal || isRunning.memoized || isRunning.naive}
                       />
                     </div>
-                    {(isRunning.greedy || isRunning.memoized || isRunning.naive) && (
+                    {(isRunning.Personal || isRunning.memoized || isRunning.naive) && (
                       <div className="mt-4 text-center">
                         <p className="text-gray-600">Ejecutando algoritmos...</p>
                         <div className="flex justify-center gap-4 mt-2">
-                          <span className={isRunning.greedy ? "text-blue-600" : "text-green-600"}>
-                            Greedy {isRunning.greedy ? '🔄' : '✅'}
+                          <span className={isRunning.Personal ? "text-blue-600" : "text-green-600"}>
+                            Personal {isRunning.Personal ? '🔄' : '✅'}
                           </span>
                           <span className={isRunning.memoized ? "text-blue-600" : "text-green-600"}>
                             Memoized {isRunning.memoized ? '🔄' : '✅'}
@@ -355,7 +389,7 @@ const algoritmo1 = () => {
                 {stage === "results" && (
                   <div className="w-full h-full flex flex-col">
                     <h4 className="text-3xl text-cyan-800 font-bold text-center mb-4">CONTRATADOS</h4>
-                    <p className="text-2xl text-yellow-600 mb-2 text-center font-semibold">⭐Máxima puntuación: {greedyRating}⭐</p>
+                    <p className="text-2xl text-yellow-600 mb-2 text-center font-semibold">⭐Máxima puntuación: {PersonalRating}⭐</p>
                     <p className="text-lg text-yellow-600 mb-2 text-center font-semibold">⭐Máximo Hipotético: {memoizedRating}⭐</p>
                       <div className="grid grid-cols-3 gap-4 overflow-y-auto px-2 pb-4 flex-1">
                       {selectedApplicants.map((applicant, index) => (
@@ -373,7 +407,8 @@ const algoritmo1 = () => {
             )}
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 
